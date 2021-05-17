@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BansosCategoryController;
+use App\Http\Controllers\BansosDonationController;
+use App\Http\Controllers\BansosReceiverController;
+use App\Http\Controllers\BansosBankController;
+use App\Http\Controllers\BansosContributorController;
+use App\Http\Controllers\BansosItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +26,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
