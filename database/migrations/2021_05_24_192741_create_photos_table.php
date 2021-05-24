@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBansosItemsTable extends Migration
+class CreatePhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBansosItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bansos_items', function (Blueprint $table) {
+        Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bansos_donation_id');
             $table->foreign('bansos_donation_id')->references('id')->on('bansos_donations');
-            $table->unsignedBigInteger('bansos_receiver_id');// default id 1 unsigned
-            $table->foreign('bansos_receiver_id')->references('id')->on('bansos_receivers'); 
-            $table->string('name_item');
-            $table->string('status_item'); // done , not -> diterima atau belum default not
+            $table->string('photo');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateBansosItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bansos_items');
+        Schema::dropIfExists('photos');
     }
 }
