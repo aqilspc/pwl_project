@@ -21,9 +21,10 @@ use App\Http\Controllers\BansosItemController;
 */
 
 Route::get('/', function () {
-    return view('dashboard.index');
+    return redirect('login');
 });
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/bank', [BansosBankController::class, 'index'])->name('bank');
