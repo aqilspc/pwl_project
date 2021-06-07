@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BansosCategory;
-use App\Models\BansosContributor;
+use App\Models\BansosReceiver;
 use App\Models\Photo;
 use App\Models\BansosItem;
 class BansosDonation extends Model
@@ -14,21 +14,21 @@ class BansosDonation extends Model
 
     public function category()
     {
-    	return $this->belongsTo(BansosCategory::class);
+    	return $this->belongsTo(BansosCategory::class,'bansos_category_id');
     }
 
-    public function contributor()
+    public function receiver()
     {
-    	return $this->belongsTo(BansosContributor::class);
+    	return $this->belongsTo(BansosReceiver::class,'bansos_receiver_id');
     }
 
     public function photo()
     {
-    	return $this->hasMany(Photo::class);
+    	return $this->hasMany(Photo::class,'bansos_donation_id');
     }
 
     public function item()
     {
-    	return $this->hasMany(BansosItem::class);
+    	return $this->hasMany(BansosItem::class,'bansos_donation_id');
     }
 }

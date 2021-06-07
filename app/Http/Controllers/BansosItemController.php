@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\BansosItem;
-
+use Session;
 class BansosItemController extends Controller
 {
     public function index(){
+        Session::put('menu','donation');
+        $data = BansosReceiver::all();
         $data = BansosItem::all();
         return view('dashboard.donation',compact('data')); 
 }

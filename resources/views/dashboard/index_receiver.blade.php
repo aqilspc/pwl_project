@@ -8,13 +8,13 @@
                 <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-                <li class="active">User Customer</li>
+                <li class="active">Receiver</li>
             </ol>
         </div><!--/.row-->
        
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">List User Customer</h1>
+                <h1 class="page-header">List Receiver</h1>
             </div>
         </div><!--/.row-->
 
@@ -27,7 +27,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                          <p align="left"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddCustomer">
-                          Add User Customer
+                          Add Receiver
                         </button></p>
                     </div>
                     <div class="panel-body">
@@ -37,22 +37,21 @@
                                 <thead>
                                     <tr>
                                         <th >No</th>
-                                        <th >Name Of user</th>
-                                        <th >Email</th>
-                                        <th >Phone Number</th>
+                                        <th >Name Of Receiver</th>
                                         <th >Address</th>
+                                        <th >Phone Number</th>
                                         <th >Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($users as $user)
+                                @foreach($data as $user)
                                 <tr>
                                     <td>{{$no}}</td>
-                                    <td>{{$user->name}}</td>
-                                     <td>{{$user->email}}</td>
-                                     <td>{{$user->phone_number}}</td>
-                                     <td>{{$user->address}}</td>
+                                    <td>{{$user->name_receiver}}</td>
+                                     <td>{{$user->address_receiver}}</td>
+                                     <td>{{$user->phone_receiver}}</td>
+
                                     <td>
                                                     <button 
                                                         class="btn btn-info btn-sm" 
@@ -86,41 +85,29 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Add New user</h4>
+          <h4 class="modal-title">Add New Rceiver</h4>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-            <form role="form" action="{{url('customer_add')}}" method="POST">
+            <form role="form" action="{{url('receiver_add')}}" method="POST">
                 @csrf
        <div class="form-group">
-            <label>Name Of User</label>
+            <label>Name Of Rceiver</label>
             <input class="form-control" 
-            name="name" placeholder="Name Of User">
-        </div>
-
-         <div class="form-group">
-            <label>Email Of User</label>
-            <input class="form-control" 
-            name="email" placeholder="Email Of User">
-        </div>
-
-         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control see_create" 
-            name="password" value="" placeholder="Password Of User">
+            name="name_receiver" placeholder="Name Of Rceiver">
         </div>
     
          <div class="form-group">
             <label>Phone Number</label>
             <input class="form-control" 
-            name="phone_number" placeholder="Phone Of User">
+            name="phone_receiver" placeholder="Phone Of Rceiver">
         </div>
 
          <div class="form-group">
             <label>Address</label>
             <textarea class="form-control" 
-            name="address" placeholder="Address Of User">
+            name="address_receiver" placeholder="Address Of Rceiver">
                 
             </textarea>
         </div>
@@ -136,52 +123,40 @@
     </div>
   </div>
 
-   @foreach($users as $vd)
+   @foreach($data as $vd)
    <div class="modal" id="Editcustomer-{{$vd->id}}">
     <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Edit user</h4>
+          <h4 class="modal-title">Edit Receiver</h4>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-            <form role="form" action="{{url('customer_update/'.$vd->id)}}" method="POST">
+            <form role="form" action="{{url('receiver_update/'.$vd->id)}}" method="POST">
                 @csrf
-        <div class="form-group">
-            <label>Name Of User</label>
-            <input class="form-control" value="{{$vd->name}}"
-            name="name" placeholder="Name Of User">
+            <div class="form-group">
+            <label>Name Of Rceiver</label>
+            <input class="form-control" 
+            name="name_receiver" value="{{$vd->name_receiver}}" placeholder="Name Of Rceiver">
         </div>
 
+    
          <div class="form-group">
-            <label>Email Of User</label>
-            <input class="form-control" value="{{$vd->email}}"
-            name="email" placeholder="Email Of User">
-        </div>
-
-         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control see_update" 
-            name="password" placeholder="Password Of User">
-            
-        </div>
-
-        <div class="form-group">
             <label>Phone Number</label>
             <input class="form-control" 
-            name="email" placeholder="Phone Of User" value="{{$vd->phone_number}}">
+            name="phone_receiver" value="{{$vd->phone_receiver}}" placeholder="Phone Of Rceiver">
         </div>
 
          <div class="form-group">
             <label>Address</label>
             <textarea class="form-control" 
-            name="address" placeholder="Address Of User">
-                {{$vd->address}}
+            name="address_receiver" placeholder="Address Of Rceiver">
+                {{$vd->address_receiver}}
             </textarea>
-
+        </div>
         </div>
         
         <!-- Modal footer -->
@@ -201,7 +176,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Delete user</h4>
+          <h4 class="modal-title">Delete receiver</h4>
           
         </div>
         
@@ -212,7 +187,7 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-         <a href="{{url('customer_delete/'.$vd->id)}}" class="btn btn-info">Yes</a>
+         <a href="{{url('receiver_delete/'.$vd->id)}}" class="btn btn-info">Yes</a>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>

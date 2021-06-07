@@ -18,12 +18,15 @@
         <ul class="nav menu">
             @php $act = Session::get('menu'); @endphp
             <li class="{{ ( $act == 'home') ? 'active' : ''}}"><a href="{{url('home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-            <li class="{{ ( $act == 'category') ? 'active' : ''}}"><a href="{{url('category')}}"><em class="fa fa-bank">&nbsp;</em> Category </a></li>
-            <li class="{{ ( $act == 'bank') ? 'active' : ''}}"><a  href="{{url('bank')}}"><em class="fa fa-industry">&nbsp;</em> Bank</a></li>
-            <li class="{{ ( $act == 'donation') ? 'active' : ''}}"><a href="{{url('donation')}}"><em class="fa fa-car">&nbsp;</em> Donation </a></li>
-            <li class="{{ ( $act == 'donatur') ? 'active' : ''}}"><a href="{{url('donatur')}}"><em class="fa fa-exchange">&nbsp;</em> Donatur</a></li>
-            <li class="{{ ( $act == 'transaction') ? 'active' : ''}}"><a href="{{url('transaction')}}"><em class="fa fa-undo">&nbsp;</em> Transaction</a></li>
-             <li class="{{ ( $act == 'report') ? 'active' : ''}}"><a href="{{url('/report/transactions')}}"><em class="fa fa-file">&nbsp;</em> Report </a></li>
+            <li class="{{ ( $act == 'category') ? 'active' : ''}}"><a href="{{url('category')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Category </a></li>
+            <li class="{{ ( $act == 'bank') ? 'active' : ''}}"><a  href="{{url('bank')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Bank</a></li>
+             <li class="{{ ( $act == 'receiver') ? 'active' : ''}}"><a href="{{url('receiver')}}">
+                <em class="fa fa-dot-circle-o">&nbsp;</em> Receiver</a></li>
+            <li class="{{ ( $act == 'donation') ? 'active' : ''}}"><a href="{{url('donation')}}">
+                <em class="fa fa-dot-circle-o">&nbsp;</em> Donation </a></li>
+            <li class="{{ ( $act == 'donatur') ? 'active' : ''}}"><a href="{{url('donatur')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Donor</a></li>
+            <li class="{{ ( $act == 'transaction') ? 'active' : ''}}"><a href="{{url('transaction')}}"><em class="fa fa-dot-circle-o">&nbsp;</em>Donation Activity</a></li>
+             <li class="{{ ( $act == 'report') ? 'active' : ''}}"><a href="{{url('/report/transactions')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Report </a></li>
             <li>
                 <form id="logout-form" action="{{ url('log_out_admin') }}"
                  method="POST" style="display: none;">@csrf </form>

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BansosContributor;
-
+use Session;
 class BansosContributorController extends Controller
 {
     public function index(){
+        Session::put('menu','contributor');
+        $data = BansosReceiver::all();
         $data = BansosContributor::all();
         return view('dashboard.index_contributor',compact('data'));
 }

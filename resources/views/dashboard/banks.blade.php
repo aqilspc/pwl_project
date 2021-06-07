@@ -92,7 +92,7 @@
             <form role="form" action="{{url('bank_add')}}" method="POST">
                 @csrf
         <div class="form-group">
-            <label>bank Name</label>
+            <label>Bank Name</label>
             <input class="form-control" name="name_bank" placeholder="bank Name">
         </div>
         <div class="form-group">
@@ -130,7 +130,7 @@
            <form role="form" action="{{url('bank_update/'.$data->id)}}" method="POST">
                @csrf
        <div class="form-group">
-           <label>bank Name</label>
+           <label>Bank Name</label>
            <input class="form-control" value="{{$data->name_bank}}"
            name="name_bank" placeholder="bank Name">
        </div>
@@ -142,7 +142,7 @@
     <div class="form-group">
       <label>Atas Nama</label>
       <input class="form-control" value="{{$data->an}}"
-      name="an" placeholder="bank Name" readonly>
+      name="an" placeholder="bank Name" >
   </div>
        </div>
        

@@ -8,13 +8,13 @@
                 <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-                <li class="active">Cars</li>
+                <li class="active">Donation</li>
             </ol>
         </div><!--/.row-->
        
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">List Cars</h1>
+                <h1 class="page-header">List Donation</h1>
             </div>
         </div><!--/.row-->
 
@@ -26,8 +26,8 @@
         @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                         <p align="left"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddCars">
-                          Add Cars
+                         <p align="left"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddDonation">
+                          Add Donation
                         </button></p>
                     </div>
                     <div class="panel-body">
@@ -37,35 +37,35 @@
                                 <thead>
                                     <tr>
                                         <th >No</th>
-                                        <th>Vendor Name</th>
-                                        <th>Name Of Car</th>
-                                        <th>Tyoe Of Car</th>
-                                        <th>Day Price</th>
-                                        <th>Fine</th>
+                                        <th>Category Name</th>
+                                        <th>Name Of Donation</th>
+                                        <th>Receiver</th>
+                                         <th>Total Amount</th>
+                                        <th>Due Date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($cars as $car)
+                                @foreach($data as $donation)
                                 <tr>
                                     <td>{{$no}}</td>
-                                    <td>{{$car->vendor->name_vendor}}</td>
-                                    <td>{{$car->name_car}}</td>
-                                    <td>{{$car->type_car}}</td>
-                                    <td>{{number_format($car->day_price)}}</td>
-                                     <td>{{number_format($car->fine)}}</td>
+                                    <td>{{$donation->category->name_category}}</td>
+                                    <td>{{mb_strimwidth($donation->name_donation,0,22,'...')}}</td>
+                                    <td>{{$donation->receiver->name_receiver}}</td>
+                                    <td>{{number_format($donation->total_donation)}}</td>
+                                     <td>{{$donation->date_donation}}</td>
                                     <td>
                                                     <button 
                                                         class="btn btn-info btn-sm" 
                                                         data-toggle="modal" 
-                                                        data-target="#Editcar-{{$car->id}}">
+                                                        data-target="#Editdonation-{{$donation->id}}">
                                                     Edit
                                                     </button>
                                                     <button 
                                                         class="btn btn-danger btn-sm" 
                                                         data-toggle="modal"
-                                                        data-target="#Deletecar-{{$car->id}}">
+                                                        data-target="#Deletedonation-{{$donation->id}}">
                                                     Delete
                                                     </button>
                                     </td>
@@ -82,66 +82,55 @@
     </div>  <!--/.main-->
 
      <!-- The Modal -->
-  <div class="modal" id="AddCars">
+  <div class="modal" id="AddDonation">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Add New car</h4>
+          <h4 class="modal-title">Add New donation</h4>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-            <form role="form" action="{{url('car_add')}}" method="POST" enctype="multipart/form-data">
+            <form role="form" action="{{url('donation_add')}}" method="POST" enctype="multipart/form-data">
                 @csrf
         <div class="form-group">
-            <label>Car Name</label>
-            <input required class="form-control" name="name_car" placeholder="Car Name">
+            <label>Donation Name</label>
+            <input required class="form-control" name="name_donation" placeholder="donation Name">
         </div>
 
         <div class="form-group">
-            <label>Vendor Name</label>
-            <select style="width: 100%" class="form-control js-example-basic-single" name="vendor_id">
-              <option value="0">Choose Vendor</option>
-                @foreach($vendors as $vd)
-                <option value="{{$vd->id}}">{{$vd->name_vendor}}</option>
+            <label>Donation Category</label>
+            <select style="width: 100%" class="form-control js-example-basic-single"
+             name="bansos_category_id">
+              <option value="0">Choose Category</option>
+                @foreach($category as $vd)
+                <option value="{{$vd->id}}">{{$vd->name_category}}</option>
                 @endforeach
             </select>
         </div>
 
         <div class="form-group">
-            <label>Type Of Car</label>
-            <select style="width: 100%" class="form-control js-example-basic-single" name="type_car">
-              <option value="0">Choose Type Of Car</option>
-               <option value="Matic">Matic</option>
-               <option value="Manual">Manual</option>
+            <label>Donation Receiver</label>
+            <select style="width: 100%" class="form-control js-example-basic-single"
+             name="bansos_receiver_id">
+              <option value="0">Choose Receiver</option>
+                @foreach($receiver as $vd)
+                <option value="{{$vd->id}}">{{$vd->name_receiver}}</option>
+                @endforeach
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Doors</label>
-            <input required class="form-control" name="doors" placeholder="Doors">
-        </div>
 
         <div class="form-group">
-            <label>Seats</label>
-            <input required class="form-control" name="seats" placeholder="Seats">
+            <label>Amount Donation</label>
+            <input required class="form-control"  name="total_donation" placeholder="Amount Donation">
         </div>
 
-         <div class="form-group">
-            <label>Image Of Car <small style="color: red">Recomended size height 366px width 650px</small> </label>
-            <input required type="file" class="form-control" name="img_car">
-        </div>
-
-         <div class="form-group">
-            <label>Day Price</label>
-            <input required type="text" class="form-control" name="day_price" placeholder="Day Price">
-        </div>
-
-         <div class="form-group">
-            <label>Fine Price</label>
-            <input required type="text" class="form-control" name="fine" placeholder="Fine Price">
+        <div class="form-group">
+            <label>Date Expired Donation</label>
+            <input type="date" required class="form-control" name="date_donation" placeholder="Seats">
         </div>
     
         </div>
@@ -155,73 +144,56 @@
     </div>
   </div>
 
-   @foreach($cars as $car)
-   <div class="modal" id="Editcar-{{$car->id}}">
+   @foreach($data as $data)
+   <div class="modal" id="Editdonation-{{$data->id}}">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Edit car</h4>
+          <h4 class="modal-title">Edit donation</h4>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-            <form role="form" action="{{url('car_update/'.$car->id)}}" method="POST" enctype="multipart/form-data">
+            <form role="form" action="{{url('donation_update/'.$data->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
         <div class="form-group">
-            <label>Car Name</label>
-            <input required class="form-control" value="{{$car->name_car}}" name="name_car" placeholder="Car Name">
+            <label>donation Name</label>
+            <input required class="form-control" value="{{$data->name_donation}}" name="name_donation" placeholder="donation Name">
         </div>
 
-        <div class="form-group">
-            <label>Vendor Name</label>
-            <select style="width: 100%" class="form-control js-example-basic-single" name="vendor_id">
-              <option value="0">Choose Vendor</option>
-                @foreach($vendors as $vd)
-                <option value="{{$vd->id}}"
-                {{ $car->vendor->id == $vd->id ? 'selected' : '' }}>{{$vd->name_vendor}}</option>
+                <div class="form-group">
+            <label>Donation Category</label>
+            <select style="width: 100%" class="form-control js-example-basic-single"
+             name="bansos_category_id">
+              <option value="0">Choose Category</option>
+                @foreach($category as $vd)
+                <option value="{{$vd->id}}" {{$data->bansos_category_id == $vd->id ? 'selected':''}}>{{$vd->name_category}}</option>
                 @endforeach
             </select>
         </div>
 
         <div class="form-group">
-            <label>Type Of Car</label>
-            <select style="width: 100%" class="form-control js-example-basic-single" name="type_car">
-              <option value="0">Choose Type Of Car</option>
-               <option value="Matic" {{ $car->type_car == 'Matic' ? 'selected' : '' }}>Matic</option>
-               <option value="Manual" {{ $car->type_car == 'Manual' ? 'selected' : '' }}>Manual</option>
+            <label>Donation Receiver</label>
+            <select style="width: 100%" class="form-control js-example-basic-single"
+             name="bansos_receiver_id">
+              <option value="0">Choose Receiver</option>
+                @foreach($receiver as $vd)
+                <option value="{{$vd->id}}"  {{$data->bansos_receiver_id == $vd->id ? 'selected':''}}>{{$vd->name_receiver}}</option>
+                @endforeach
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Doors</label>
-            <input required class="form-control" name="doors" placeholder="Doors" value="{{$car->doors}}">
-        </div>
 
         <div class="form-group">
-            <label>Seats</label>
-            <input required class="form-control" name="seats" placeholder="Seats"  value="{{$car->seats}}">
+            <label>Amount Donation</label>
+            <input required class="form-control" value="{{$data->total_donation}}" name="total_donation" placeholder="Amount Donation">
         </div>
 
-         <div class="form-group">
-            <label>Image Of Car <small style="color: red">Recomended size height 366px width 650px</small></label>
-            <input type="file" class="form-control" name="img_car">
-            <input type="hidden" name="old_img_car" value="{{$car->img_car}}">
-        </div>
-         <div class="form-group">
-             <label>If Have Been Change Imgae , click update For see update item!</label>
-            <img src="{{$car->img_car}}">
-        </div>
-
-         <div class="form-group">
-            <label>Day Price</label>
-            <input required type="text" value="{{$car->day_price}}" class="form-control" name="day_price" placeholder="Day Price">
-        </div>
-
-         <div class="form-group">
-            <label>Fine Price</label>
-            <input required type="text" value="{{$car->fine}}" class="form-control" name="fine" placeholder="Fine Price">
+        <div class="form-group">
+            <label>Date Expired Donation</label>
+            <input type="date" required class="form-control" value="{{$data->date_donation}}" name="date_donation" placeholder="Seats">
         </div>
     
         </div>
@@ -236,13 +208,13 @@
     </div>
   </div>
 
-     <div class="modal" id="Deletecar-{{$car->id}}">
+     <div class="modal" id="Deletedonation-{{$data->id}}">
     <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Delete car</h4>
+          <h4 class="modal-title">Delete donation</h4>
           
         </div>
         
@@ -253,7 +225,7 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-         <a href="{{url('car_delete/'.$car->id)}}" class="btn btn-info">Yes</a>
+         <a href="{{url('donation_delete/'.$donation->id)}}" class="btn btn-info">Yes</a>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>

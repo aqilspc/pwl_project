@@ -11,6 +11,7 @@ class BansosCategoryController extends Controller
     public function index(){
         Session::put('menu','category');
         $data = BansosCategory::all();
+        //return $data->donation;
         return view('dashboard.Category',compact('data'));
     } 
     public function create(Request $request){

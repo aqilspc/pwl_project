@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\BansosDonation;
+use App\Models\BansosContributor;
 use App\Models\BansosReceiver;
 class BansosItem extends Model
 {
@@ -15,8 +15,8 @@ class BansosItem extends Model
         return $this->belongsTo(BansosDonation::class);
     }
 
-    public function receiver()
+    public function contributor()
     {
-        return $this->hasMany(BansosReceiver::class);
+        return $this->hasMany(BansosContributor::class);
     }
 }

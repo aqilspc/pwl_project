@@ -17,10 +17,9 @@ class CreateBansosItemsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('bansos_donation_id');
             $table->foreign('bansos_donation_id')->references('id')->on('bansos_donations');
-            $table->unsignedBigInteger('bansos_receiver_id');// default id 1 unsigned
-            $table->foreign('bansos_receiver_id')->references('id')->on('bansos_receivers'); 
-            $table->string('name_item');
-            $table->string('status_item'); // done , not -> diterima atau belum default not
+            $table->unsignedBigInteger('bansos_contributor_id');
+            $table->foreign('bansos_contributor_id')->references('id')->on('bansos_contributors');
+            $table->unsignedBigInteger('total_item'); 
             $table->timestamps();
         });
     }

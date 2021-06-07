@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Car Rental | Admin Dashbaord</title>
+    <title>SIMBA SRI | Admin Dashbaord</title>
     <link href="{{url('dashboard/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('dashboard/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{url('dashboard/css/datepicker3.css')}}" rel="stylesheet">
@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="#"><span>Car</span>ental Admin</a>
+                <a class="navbar-brand" href="#"><span>SIMBA</span>SRI</a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>

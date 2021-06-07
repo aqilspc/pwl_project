@@ -15,7 +15,7 @@ class CreateReceiversTable extends Migration
     {
         Schema::create('bansos_receivers', function (Blueprint $table) {
             $table->id();
-            $table->string('code_receiver');
+            //$table->string('code_receiver');
             $table->string('name_receiver');
             $table->string('phone_receiver');
             $table->text('address_receiver');

@@ -17,8 +17,8 @@ class CreateBansosDonationTable extends Migration
             $table->id();
             $table->unsignedBigInteger('bansos_category_id');
             $table->foreign('bansos_category_id')->references('id')->on('bansos_categories');
-            $table->unsignedBigInteger('bansos_contributor_id');
-            $table->foreign('bansos_contributor_id')->references('id')->on('bansos_contributors');
+            $table->unsignedBigInteger('bansos_receiver_id');// default id 1 unsigned
+            $table->foreign('bansos_receiver_id')->references('id')->on('bansos_receivers'); 
             $table->string('name_donation');
             $table->unsignedBigInteger('total_donation');
             $table->date('date_donation');

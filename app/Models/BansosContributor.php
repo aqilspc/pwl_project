@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\BansosDonation;
+use App\Models\BansosItem;
 use App\Models\User;
 class BansosContributor extends Model
 {
     use HasFactory;
 
-    public function donation()
+    public function item()
     {
-    	return $this->belongsTo(BansosDonation::class);
+    	return $this->belongsTo(BansosItem::class);
     }
 
 
