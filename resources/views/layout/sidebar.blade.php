@@ -18,25 +18,12 @@
         <ul class="nav menu">
             @php $act = Session::get('menu'); @endphp
             <li class="{{ ( $act == 'home') ? 'active' : ''}}"><a href="{{url('home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-            <li class="{{ ( $act == 'banks') ? 'active' : ''}}"><a href="{{url('banks')}}"><em class="fa fa-bank">&nbsp;</em> Bank </a></li>
-            <li class="{{ ( $act == 'vendors') ? 'active' : ''}}"><a  href="{{url('vendors')}}"><em class="fa fa-industry">&nbsp;</em> Vendor car</a></li>
-            <li class="{{ ( $act == 'cars') ? 'active' : ''}}"><a href="{{url('cars')}}"><em class="fa fa-car">&nbsp;</em> Car </a></li>
-            <li class="{{ ( $act == 'transactions') ? 'active' : ''}}"><a href="{{url('transactions')}}"><em class="fa fa-exchange">&nbsp;</em> Transaction</a></li>
-            <li class="{{ ( $act == 'return') ? 'active' : ''}}"><a href="{{url('transaction_return')}}"><em class="fa fa-undo">&nbsp;</em> Return Car</a></li>
+            <li class="{{ ( $act == 'category') ? 'active' : ''}}"><a href="{{url('category')}}"><em class="fa fa-bank">&nbsp;</em> Category </a></li>
+            <li class="{{ ( $act == 'bank') ? 'active' : ''}}"><a  href="{{url('bank')}}"><em class="fa fa-industry">&nbsp;</em> Bank</a></li>
+            <li class="{{ ( $act == 'donation') ? 'active' : ''}}"><a href="{{url('donation')}}"><em class="fa fa-car">&nbsp;</em> Donation </a></li>
+            <li class="{{ ( $act == 'donatur') ? 'active' : ''}}"><a href="{{url('donatur')}}"><em class="fa fa-exchange">&nbsp;</em> Donatur</a></li>
+            <li class="{{ ( $act == 'transaction') ? 'active' : ''}}"><a href="{{url('transaction')}}"><em class="fa fa-undo">&nbsp;</em> Transaction</a></li>
              <li class="{{ ( $act == 'report') ? 'active' : ''}}"><a href="{{url('/report/transactions')}}"><em class="fa fa-file">&nbsp;</em> Report </a></li>
-            <li class="parent {{ ( $act == 'user_admin') ? 'active' : ''}}">
-                <a data-toggle="collapse" href="#sub-item-1">
-                <em class="fa fa-users">&nbsp;</em> User Menu <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-                </a>
-                <ul class="children collapse" id="sub-item-1">
-                    <li><a class="{{ ( $act == 'user_admin') ? 'active' : ''}}" href="{{url('users')}}">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Admin dashboard
-                    </a></li>
-                    <li><a class="{{ ( $act == 'user_customer') ? 'active' : ''}}" href="{{url('customers')}}">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Customer Rental
-                    </a></li>
-                </ul>
-            </li>
             <li>
                 <form id="logout-form" action="{{ url('log_out_admin') }}"
                  method="POST" style="display: none;">@csrf </form>

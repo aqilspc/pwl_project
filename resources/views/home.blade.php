@@ -127,7 +127,7 @@
                                         <div data-toggle="flatpickr" data-flatpickr-wrap="true"
                                             data-flatpickr-static="true" data-flatpickr-mode="range"
                                             data-flatpickr-alt-format="d/m/Y" data-flatpickr-date-format="d/m/Y">
-                                            <a href="{{url('admin/javascript:void(0)" class="link-date" data-toggle>13/03/2018 <span
+                                            <a href="admin/javascript:void(0)" class="link-date" data-toggle>13/03/2018 <span
                                                     class="text-muted mx-1">to</span> 20/03/2018</a>
                                             <input class="flatpickr-hidden-input" type="hidden"
                                                 value="13/03/2018 to 20/03/2018" data-input>
