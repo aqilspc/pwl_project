@@ -9,6 +9,7 @@ use App\Http\Controllers\BansosReceiverController;
 use App\Http\Controllers\BansosCategoryController;
 use App\Http\Controllers\BansosContributorController;
 use App\Http\Controllers\BansosItemController;
+use App\Http\Controllers\WebController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,12 +22,21 @@ use App\Http\Controllers\BansosItemController;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return redirect('homepage');
 });
 
 Auth::routes();
-
+//web
+Route::get('/homepage', [WebController::class, 'index']);
+Route::get('/login/auth', [WebController::class, 'login_auth']);
+//home dashboard
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+//logout
+Route::post('/log_out_admin', [UserController::class, 'log_out_admin']);
+Route::get('/log_out_customer', [UserController::class, 'log_out_customer']);
+//register
+Route::post('/register_auth', [WebController::class, 'register_auth']);
+Route::post('/donation_donate/{id}', [WebController::class, 'donateNow']);
 //Bank
 Route::get('/bank', [BansosBankController::class, 'index'])->name('bank');
 Route::post('/bank_add', [BansosBankController::class, 'create'])->name('bank_add');

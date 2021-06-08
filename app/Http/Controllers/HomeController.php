@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        Session::put('menu','home');
-        return view('dashboard.home');
+        if(Auth::user()->role=='admin')
+        {
+           Session::put('menu','home');
+           return view('dashboard.home'); 
+        }else
+        {
+            return redirect('homepage');
+        }
+        
     }
 }

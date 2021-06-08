@@ -132,7 +132,10 @@
             <label>Date Expired Donation</label>
             <input type="date" required class="form-control" name="date_donation" placeholder="Seats">
         </div>
-    
+    <div class="form-group">
+            <label>Banner Donation</label>
+            <input type="file" required class="form-control" name="banner" placeholder="Seats">
+        </div>
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -195,7 +198,13 @@
             <label>Date Expired Donation</label>
             <input type="date" required class="form-control" value="{{$data->date_donation}}" name="date_donation" placeholder="Seats">
         </div>
-    
+            <div class="form-group">
+            <label>Banner Donation</label>
+            <input type="file" required class="form-control" name="banner" placeholder="Seats">
+        </div>
+        <img src="{{$data->bansos_banner}}" style="
+        width: 40%">
+        <input type="hidden" name="old_banner" value="{{$data->bansos_banner}}">
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
