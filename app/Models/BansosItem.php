@@ -12,11 +12,11 @@ class BansosItem extends Model
 
     public function donation()
     {
-        return $this->belongsTo(BansosDonation::class);
+        return $this->belongsTo(BansosDonation::class,'bansos_donation_id');
     }
 
     public function contributor()
     {
-        return $this->hasMany(BansosContributor::class);
+        return $this->belongsTo(BansosContributor::class,'bansos_contributor_id');
     }
 }

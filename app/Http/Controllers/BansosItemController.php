@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\BansosItem;
+use App\Models\BansosItem;
 use Session;
 class BansosItemController extends Controller
 {
     public function index(){
-        Session::put('menu','donation');
-        $data = BansosReceiver::all();
-        $data = BansosItem::all();
-        return view('dashboard.donation',compact('data')); 
+        Session::put('menu','transaction');
+        $data = BansosItem::with('donation','contributor')->get();
+        return view('dashboard.transactions',compact('data')); 
 }
 public function create(Request $request){
     $data = new BansosItem;
@@ -37,4 +36,4 @@ public function delete($id){
     return redirect()->back();
 }
 }
-}
+

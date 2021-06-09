@@ -12,7 +12,7 @@ class BansosContributor extends Model
 
     public function item()
     {
-    	return $this->belongsTo(BansosItem::class);
+    	return $this->hasMany(BansosItem::class,'bansos_item_id');
     }
 
 

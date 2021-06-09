@@ -58,13 +58,15 @@ Route::post('/donation_add', [BansosDonationController::class, 'create'])->name(
 Route::post('/donation_update/{id}', [BansosDonationController::class, 'update'])->name('donation_update');
 Route::get('/donation_delete/{id}', [BansosDonationController::class, 'delete'])->name('donation_delete');
 //Item
-Route::get('/item', [BansosItemController::class, 'index'])->name('item');
-Route::post('/item_add', [BansosItemController::class, 'create'])->name('item_add');
-Route::post('/item_update/{id}', [BansosItemController::class, 'update'])->name('item_update');
-Route::get('/item_delete/{id}', [BansosItemController::class, 'delete'])->name('item_delete');
+Route::get('/transaction', [BansosItemController::class, 'index'])->name('transaction');
+Route::post('/transaction_add', [BansosItemController::class, 'create'])->name('transaction_add');
+Route::post('/transaction_update/{id}', [BansosItemController::class, 'update'])->name('transaction_update');
+Route::get('/transaction_delete/{id}', [BansosItemController::class, 'delete'])->name('transaction_delete');
 //Receiver
 Route::get('/receiver', [BansosReceiverController::class, 'index'])->name('receiver');
 Route::post('/receiver_add', [BansosReceiverController::class, 'create'])->name('receiver_add');
 Route::post('/receiver_update/{id}', [BansosReceiverController::class, 'update'])->name('receiver_update');
 Route::get('/receiver_delete/{id}', [BansosReceiverController::class, 'delete'])->name('receiver_delete');
+
+
 
