@@ -70,7 +70,7 @@ Route::post('/receiver_update/{id}', [BansosReceiverController::class, 'update']
 Route::get('/receiver_delete/{id}', [BansosReceiverController::class, 'delete'])->name('receiver_delete');
 //Report
 Route::get('/report', [ReportController::class, 'index'])->name('report');
-Route::post('/report_detail', [ReportController::class, 'create'])->name('report_detail');
+Route::post('/report_detail', [ReportController::class, 'detail'])->name('report_detail');
 
 
 

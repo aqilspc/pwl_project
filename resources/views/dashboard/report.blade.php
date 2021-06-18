@@ -23,7 +23,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-md-12">
-                              <form target="_blank" role="form" action="{{url('transaction_get_report')}}" method="POST">
+                              <form target="_blank" role="form" action="{{url('report_detail')}}" method="POST">
                                         @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -37,8 +37,7 @@
                             </div>
                             <p align="right">
                                  <button type="submit" name="pdf" value="pdf" class="btn btn-info">Download Pdf <i class="fa fa-download"></i></button>
-                                 <button type="submit" name="view" value="view" class="btn btn-success">View Data Report <i class="fa fa-eye"></i></button>
-
+                               
                                 <button type="reset" class="btn btn-danger"><i class="fa fa-refresh"></i> Reset</button>
                             </p>
                             </form>

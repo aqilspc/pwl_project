@@ -42,6 +42,14 @@ class ReportController extends Controller
 
     public function detail(Request $request)
     {
-        $data=BansosItem::whenBetween([$request->start_date,$request->end_date])->get();
+        $data=BansosItem::whereBetween('date',[$request->start_lease_date,$request->end_lease_date])
+        ->with('donation','contributor')
+        ->get();
+        $start = $request->start_lease_date;
+        $end = $request->end_lease_date;
+        $now=Carbon::now()->format('Y-m-d');
+        //return $data;
+        $pdf = PDF::loadview('dashboard.report_pdf',compact('data','start','end','now'));
+        return $pdf->download('report- bansos'.$request->start_date.'-'.$request->end_date.'.pdf');
     }
 }
