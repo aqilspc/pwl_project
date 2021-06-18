@@ -26,7 +26,7 @@
                 <em class="fa fa-dot-circle-o">&nbsp;</em> Donation </a></li>
             <li class="{{ ( $act == 'contributor') ? 'active' : ''}}"><a href="{{url('contributor')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Donor</a></li>
             <li class="{{ ( $act == 'transaction') ? 'active' : ''}}"><a href="{{url('transaction')}}"><em class="fa fa-dot-circle-o">&nbsp;</em>Donation Activity</a></li>
-             <li class="{{ ( $act == 'report') ? 'active' : ''}}"><a href="{{url('/report/transactions')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Report </a></li>
+             <li class="{{ ( $act == 'report') ? 'active' : ''}}"><a href="{{url('/report')}}"><em class="fa fa-dot-circle-o">&nbsp;</em> Report </a></li>
             <li>
                 <form id="logout-form" action="{{ url('log_out_admin') }}"
                  method="POST" style="display: none;">@csrf </form>

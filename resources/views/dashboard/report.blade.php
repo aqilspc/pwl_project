@@ -35,17 +35,6 @@
                                     <input type="date" required class="form-control" name="end_lease_date" value="{{$now}}">
                                 </div>
                             </div>
-
-                            <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                    <label>Start Retrun Date</label>
-                                    <input type="date" required class="form-control" name="start_return_date" value="{{$now}}">
-                                </div>
-                             <div class="form-group col-md-6">
-                                    <label>End Retrun Date</label>
-                                    <input type="date" required class="form-control" name="end_return_date" value="{{$now}}">
-                                </div>
-                            </div>
                             <p align="right">
                                  <button type="submit" name="pdf" value="pdf" class="btn btn-info">Download Pdf <i class="fa fa-download"></i></button>
                                  <button type="submit" name="view" value="view" class="btn btn-success">View Data Report <i class="fa fa-eye"></i></button>

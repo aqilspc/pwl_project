@@ -16,6 +16,7 @@ class CreateBansosItemsTable extends Migration
         Schema::create('bansos_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bansos_donation_id');
+            $table->date('date');
             $table->foreign('bansos_donation_id')->references('id')->on('bansos_donations');
             $table->unsignedBigInteger('bansos_contributor_id');
             $table->foreign('bansos_contributor_id')->references('id')->on('bansos_contributors');

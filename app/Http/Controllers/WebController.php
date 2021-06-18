@@ -84,7 +84,8 @@ class WebController extends Controller
         $data->bansos_donation_id = $id;
         $data->total_item = $request->total_item;
         $data->bansos_contributor_id = $contributor->id;
+        $data->date=Carbon::now()->format('Y-m-d');
         $data->save();
-        return redirect()->back()->with('success','Succssfuly donate thanks for your donation!');
+        return redirect()->back()->with('success','Your dontaion succeed thanks for your donation!');
     }
 }

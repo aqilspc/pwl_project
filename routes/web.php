@@ -9,6 +9,7 @@ use App\Http\Controllers\BansosReceiverController;
 use App\Http\Controllers\BansosCategoryController;
 use App\Http\Controllers\BansosContributorController;
 use App\Http\Controllers\BansosItemController;
+use App\Http\controllers\ReportController;
 use App\Http\Controllers\WebController;
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,9 @@ Route::get('/receiver', [BansosReceiverController::class, 'index'])->name('recei
 Route::post('/receiver_add', [BansosReceiverController::class, 'create'])->name('receiver_add');
 Route::post('/receiver_update/{id}', [BansosReceiverController::class, 'update'])->name('receiver_update');
 Route::get('/receiver_delete/{id}', [BansosReceiverController::class, 'delete'])->name('receiver_delete');
+//Report
+Route::get('/report', [ReportController::class, 'index'])->name('report');
+Route::post('/report_detail', [ReportController::class, 'create'])->name('report_detail');
 
 
 
