@@ -16,7 +16,7 @@ class CreateContributorsTable extends Migration
         Schema::create('bansos_contributors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->string('name_contributor');
             $table->string('phone_contributor');
             $table->string('address_contributor');

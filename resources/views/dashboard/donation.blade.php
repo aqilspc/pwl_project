@@ -200,7 +200,7 @@
         </div>
             <div class="form-group">
             <label>Banner Donation</label>
-            <input type="file" required class="form-control" name="banner" placeholder="Seats">
+            <input type="file" class="form-control" name="banner" placeholder="Seats">
         </div>
         <img src="{{$data->bansos_banner}}" style="
         width: 40%">

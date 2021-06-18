@@ -155,33 +155,33 @@
       
          <div class="form-group">
             <label>Donatur Name</label>
-            <input class="form-control" value="{{$vd->email}}"
+            <input class="form-control" value="{{$vd->name_contributor}}"
             name="name_contributor" placeholder="Insert Donatur Name">
         </div>
 
         <div class="form-group">
           <label>Email</label>
-          <input class="form-control" value="{{$vd->email}}"
+          <input class="form-control" value="{{$vd->user->email}}"
           name="email" placeholder="Insert your email">
       </div>
 
       <div class="form-group">
         <label>Password</label>
-        <input class="form-control" value="{{$vd->email}}"
+        <input class="form-control" 
         name="password" type="password" placeholder="Insert Your password">
     </div>
 
         <div class="form-group">
             <label>Phone Number</label>
             <input class="form-control" 
-            name="phone_number" placeholder="Insert Your Phone Number" value="{{$vd->phone_number}}">
+            name="phone_number" placeholder="Insert Your Phone Number" value="{{$vd->phone_contributor}}">
         </div>
 
          <div class="form-group">
             <label>Address</label>
             <textarea class="form-control" 
             name="address" placeholder="Insert your address">
-                {{$vd->address}}
+                {{$vd->address_contributor}}
             </textarea>
 
         </div>
