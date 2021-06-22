@@ -29,7 +29,7 @@
 }
 </style>
   <center>
-    <h5>Report Data Lease date : {{$start}} , - : {{$end}}</h4>
+    <h5>Report Data Lease date : {{$start}}  -  {{$end}}</h4>
     </center>
     <table id="customers" class='table table-bordered' style="width: 100%">
       <thead>
@@ -51,15 +51,16 @@
                                     <td>{{$data->donation->name_donation}}</td>
                                     <td>{{$data->contributor->name_contributor}}</td>
                                     <td>{{$data->date}}</td>
-                                    <td>{{$data->total_item}}</td>
+                                    <td>{{number_format($data->total_item)}}</td>
                                 </tr>
                                 @php $no++; @endphp
+                                @php $total += $data->total_item @endphp
                                  @endforeach
       </tbody>
       <tfoot>
         <tr>
-          <td>
-           Total : {{$total += $data->total_item}}
+          <td colspan="5" style="text-align: right">
+           Total : {{number_format($total)}}
           </td>
         </tr>
       </tfoot>

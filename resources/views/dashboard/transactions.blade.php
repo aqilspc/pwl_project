@@ -37,7 +37,7 @@
                                         <th>Bansos Name</th>
                                         <th>Bansos Donatur</th>
                                         <th>Total item</th>
-                                       
+                                        <th>Date Donation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +48,7 @@
                                     <td>{{$d->donation->name_donation}}</td>
                                     <td>{{$d->contributor->name_contributor}}</td>
                                     <td>{{$d->total_item}}</td>
-
+                                    <td>{{\Carbon\Carbon::parse($d->created_at)->format('Y-m-d')}}</td>
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach
