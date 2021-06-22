@@ -7,6 +7,10 @@ use App\Models\BansosItem;
 use Session;
 class BansosItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         Session::put('menu','transaction');
         $data = BansosItem::with('donation','contributor')->get();

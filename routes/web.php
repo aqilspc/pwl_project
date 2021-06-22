@@ -25,19 +25,20 @@ use App\Http\Controllers\WebController;
 Route::get('/', function () {
     return redirect('homepage');
 });
-
-Auth::routes();
-//web
-Route::get('/homepage', [WebController::class, 'index']);
-Route::get('/login/auth', [WebController::class, 'login_auth']);
-//home dashboard
+// global
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-//logout
-Route::post('/log_out_admin', [UserController::class, 'log_out_admin']);
-Route::get('/log_out_customer', [UserController::class, 'log_out_customer']);
-//register
+Route::get('/login/auth', [WebController::class, 'login_auth']);
+Route::get('/homepage', [WebController::class, 'index']);
 Route::post('/register_auth', [WebController::class, 'register_auth']);
 Route::post('/donation_donate/{id}', [WebController::class, 'donateNow']);
+Route::get('/donation_act', [HomeController::class, 'getDataDonor']);
+Route::get('/log_out_customer', [UserController::class, 'log_out_customer']);
+
+//logout
+Route::post('/log_out_admin', [UserController::class, 'log_out_admin']);
+//endglobal
+Auth::routes();
+Route::group(['middleware' => ['auth','checkRole:admin']], function () {
 //Bank
 Route::get('/bank', [BansosBankController::class, 'index'])->name('bank');
 Route::post('/bank_add', [BansosBankController::class, 'create'])->name('bank_add');
@@ -72,5 +73,5 @@ Route::get('/receiver_delete/{id}', [BansosReceiverController::class, 'delete'])
 Route::get('/report', [ReportController::class, 'index'])->name('report');
 Route::post('/report_detail', [ReportController::class, 'detail'])->name('report_detail');
 
-
+});
 

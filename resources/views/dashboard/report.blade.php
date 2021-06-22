@@ -19,7 +19,7 @@
         </div><!--/.row-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                         <p align="center">Set lease date and return date range for get report!</p>
+                         <p align="center">Set start date and end date range for get report!</p>
                     </div>
                     <div class="panel-body">
                         <div class="col-md-12">
@@ -27,11 +27,11 @@
                                         @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <label>Start Lease Date</label>
+                                    <label>Start Date</label>
                                     <input type="date" required class="form-control" name="start_lease_date" value="{{$now}}">
                                 </div>
                              <div class="form-group col-md-6">
-                                    <label>End Lease Date</label>
+                                    <label>End  Date</label>
                                     <input type="date" required class="form-control" name="end_lease_date" value="{{$now}}">
                                 </div>
                             </div>

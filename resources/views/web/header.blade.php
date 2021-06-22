@@ -24,7 +24,7 @@
         
         <!-- Modernizr -->
         <script src="{{url('web/assets/js/modernizr-2.6.2.min.js')}}"></script>
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
 
     </head>
 
@@ -61,13 +61,13 @@
                   <ul class="nav navbar-nav">
                     @guest
                     <li><a class="is-active" href="{{url('/')}}">Home</a></li>
-                    <li><a href="{{url('web/about.html')}}">Donation Activities</a></li>
+                    <li><a href="{{url('donation_act')}}">Donation Activities</a></li>
                     <li><a href="{{url('login/auth')}}">Login</a></li>
                     @endauth
                      @auth
                      <li><a class="is-active" href="{{url('/')}}">Home</a></li>
-                    <li><a href="{{url('web/about.html')}}">Donation Activities</a></li>
-                    <li><a href="{{url('web/gallery.html')}}">Halo, {{Auth::user()->name}}</a></li>
+                    <li><a href="{{url('donation_act')}}">Donation Activities</a></li>
+                    <li><a href="{{url('home')}}">Halo, {{Auth::user()->name}}</a></li>
                     <li><a href="{{url('log_out_customer')}}">Logout</a></li>
                     @endauth
                     

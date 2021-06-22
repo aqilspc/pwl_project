@@ -37,7 +37,6 @@
                                 <thead>
                                     <tr>
                                         <th >No</th>
-                                        <th >User ID</th>
                                         <th >Donatur Name</th>
                                         <th >Email</th>
                                         <th >Phone Number</th>
@@ -50,7 +49,6 @@
                                 @foreach($data as $user)
                                 <tr>
                                     <td>{{$no}}</td>
-                                    <td>{{$user->user_id}}</td>
                                     <td>{{$user->name_contributor}}</td>
                                     <td>{{$user->user->email}}</td>
                                      <td>{{$user->phone_contributor}}</td>

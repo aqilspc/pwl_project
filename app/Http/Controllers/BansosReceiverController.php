@@ -7,6 +7,10 @@ use App\Models\BansosReceiver;
 use Session;
 class BansosReceiverController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         Session::put('menu','receiver');
         $data = BansosReceiver::all();

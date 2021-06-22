@@ -22,75 +22,38 @@
             <div class="row">
                 <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                     <div class="panel panel-teal panel-widget border-right">
-                        <div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
-                            <div class="large"></div>
-                            <div class="text-muted">Total Orders</div>
+                        <div class="row no-padding"><em class="fa fa-xl fa-book color-blue"></em>
+                            <div class="large">{{$donation}}</div>
+                            <div class="text-muted">Total Donation</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                     <div class="panel panel-blue panel-widget border-right">
-                        <div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-red"></em>
-                            <div class="large"></div>
-                            <div class="text-muted">Total Transaction</div>
+                        <div class="row no-padding"><em class="fa fa-xl fa-users color-red"></em>
+                            <div class="large">{{$donatur}}</div>
+                            <div class="text-muted">Total Donatur</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                     <div class="panel panel-orange panel-widget border-right">
                         <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-                            <div class="large"></div>
-                            <div class="text-muted">Total Customer</div>
+                            <div class="large">{{$receiver}}</div>
+                            <div class="text-muted">Total Receiver</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                     <div class="panel panel-red panel-widget ">
-                        <div class="row no-padding"><em class="fa fa-xl fa-users"></em>
-                            <div class="large"></div>
-                            <div class="text-muted">Total Admin</div>
+                        <div class="row no-padding"><em class="fa fa-xl fa-money"></em>
+                            <div class="large">{{$admin}}</div>
+                            <div class="text-muted">Total Donation Activities</div>
                         </div>
                     </div>
                 </div>
             </div><!--/.row-->
         </div>
         
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Vendor Cars</h4>
-                        <div class="easypiechart" id="easypiechart-blue" data-percent="" >
-                            <span class="percent"></span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Cars</h4>
-                        <div class="easypiechart" id="easypiechart-orange" data-percent="" >
-                            <span class="percent"></span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Leased Cars</h4>
-                        <div class="easypiechart" id="easypiechart-teal" data-percent="" ><span class="percent"></span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Return Cars</h4>
-                        <div class="easypiechart" id="easypiechart-red" data-percent="" >
-                            <span class="percent"></span></div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.row-->
     </div>  <!--/.main-->
 @endsection
